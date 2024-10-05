@@ -1,0 +1,147 @@
+{
+  "definitions": {
+    "CfgAuthConfig": {
+      "properties": {
+        "db": {
+          "$ref": "#/definitions/CfgDBConfig"
+        },
+        "oidc": {
+          "$ref": "#/definitions/CfgOIDCConfig"
+        }
+      },
+      "type": "object"
+    },
+    "CfgConfigOptions": {
+      "properties": {
+        "code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "file": {
+          "$ref": "#/definitions/CfgFileConfig"
+        },
+        "html": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "json": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sql": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CfgDBConfig": {
+      "properties": {
+        "database": {
+          "type": "string"
+        },
+        "driver": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer"
+        },
+        "user": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CfgFileConfig": {
+      "properties": {
+        "content-type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CfgOIDCConfig": {
+      "properties": {
+        "client-id": {
+          "type": "string"
+        },
+        "client-secret": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CfgPathConfig": {
+      "properties": {
+        "get": {
+          "$ref": "#/definitions/CfgConfigOptions"
+        },
+        "post": {
+          "$ref": "#/definitions/CfgConfigOptions"
+        }
+      },
+      "type": "object"
+    },
+    "CfgServerConfig": {
+      "properties": {
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "properties": {
+    "auth": {
+      "$ref": "#/definitions/CfgAuthConfig"
+    },
+    "database": {
+      "$ref": "#/definitions/CfgDBConfig"
+    },
+    "paths": {
+      "additionalProperties": {
+        "$ref": "#/definitions/CfgPathConfig"
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "server": {
+      "$ref": "#/definitions/CfgServerConfig"
+    },
+    "version": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}
